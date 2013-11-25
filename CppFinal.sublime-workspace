@@ -51,7 +51,7 @@
 			"file": "Registro.cpp",
 			"settings":
 			{
-				"buffer_size": 2195,
+				"buffer_size": 2181,
 				"line_ending": "Windows"
 			}
 		},
@@ -59,7 +59,7 @@
 			"file": "Clases.cpp",
 			"settings":
 			{
-				"buffer_size": 7079,
+				"buffer_size": 11392,
 				"line_ending": "Windows"
 			}
 		},
@@ -67,7 +67,7 @@
 			"file": "Clases.h",
 			"settings":
 			{
-				"buffer_size": 1111,
+				"buffer_size": 1161,
 				"line_ending": "Windows"
 			}
 		}
@@ -108,6 +108,7 @@
 	},
 	"file_history":
 	[
+		"/C/Users/JSalvaG/Documentos/UniMar/Semestre I Oct-Dic-2012/ArteCultura/Corte_1/ProblemDesarrolloNacReg/Investigacion Problematica.txt",
 		"/C/Users/JSalvaG/Documentos/mama",
 		"/C/Users/JSalvaG/Documents/GitHub/ContadorBibliotecario/Biblioteca/pseudo.txt",
 		"/C/Users/JSalvaG/Documentos/20111202-carta-cantv.txt",
@@ -166,15 +167,15 @@
 					"file": "Registro.cpp",
 					"settings":
 					{
-						"buffer_size": 2195,
+						"buffer_size": 2181,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1814,
-								1814
+								0,
+								0
 							]
 						],
 						"settings":
@@ -194,25 +195,25 @@
 					"file": "Clases.cpp",
 					"settings":
 					{
-						"buffer_size": 7079,
+						"buffer_size": 11392,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6921,
-								6921
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 4,
+							"tab_size": 8,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2553.0,
+						"translation.y": 200.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -222,15 +223,15 @@
 					"file": "Clases.h",
 					"settings":
 					{
-						"buffer_size": 1111,
+						"buffer_size": 1161,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								518,
-								518
+								0,
+								0
 							]
 						],
 						"settings":
