@@ -1,9 +1,9 @@
 object Form4: TForm4
-  Left = 537
-  Top = 289
+  Left = 496
+  Top = 14
   BorderStyle = bsSingle
   Caption = 'Datos'
-  ClientHeight = 524
+  ClientHeight = 655
   ClientWidth = 809
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -43,14 +43,14 @@ object Form4: TForm4
     Width = 809
     Height = 153
     Align = alTop
+    ColCount = 4
     RowCount = 2
     TabOrder = 1
     ColWidths = (
       64
       193
-      129
-      337
-      76)
+      139
+      405)
   end
   object Empleado: TStringGrid
     Left = 0
@@ -58,13 +58,34 @@ object Form4: TForm4
     Width = 809
     Height = 153
     Align = alTop
+    ColCount = 8
     RowCount = 2
     TabOrder = 2
     ColWidths = (
       64
-      69
-      70
-      76
-      76)
+      89
+      108
+      126
+      135
+      121
+      64
+      91)
+  end
+  object Historia: TStringGrid
+    Left = 0
+    Top = 451
+    Width = 809
+    Height = 153
+    Align = alTop
+    ColCount = 6
+    RowCount = 2
+    TabOrder = 3
+    ColWidths = (
+      64
+      135
+      178
+      175
+      169
+      79)
   end
 end

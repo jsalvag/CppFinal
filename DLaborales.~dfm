@@ -1,6 +1,6 @@
 object Form3: TForm3
-  Left = 342
-  Top = 195
+  Left = 971
+  Top = 132
   BorderStyle = bsToolWindow
   Caption = 'Datos Laborales'
   ClientHeight = 401
@@ -29,11 +29,11 @@ object Form3: TForm3
     ParentFont = False
   end
   object Label2: TLabel
-    Left = 30
+    Left = 76
     Top = 40
-    Width = 136
+    Width = 90
     Height = 20
-    Caption = 'Casa de estudio:'
+    Caption = 'Instituci'#243'n:'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -216,7 +216,7 @@ object Form3: TForm3
     Top = 368
     Width = 129
     Height = 25
-    Caption = 'Guardar'
+    Caption = 'Continuar'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16

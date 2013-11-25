@@ -15,6 +15,7 @@ __published:	// IDE-managed Components
         TStringGrid *Persona;
         TStringGrid *Reprecentante;
         TStringGrid *Empleado;
+        TStringGrid *Historia;
         void __fastcall FormCreate(TObject *Sender);
 private:	// User declarations
 public:		// User declarations

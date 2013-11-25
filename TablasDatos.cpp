@@ -28,7 +28,7 @@ void __fastcall TForm4::FormCreate(TObject *Sender)
         Persona->Cells[9][0]="Tipo";
         Persona->Cells[10][0]="Relación";
 
-        Reprecentante->Cells[0][0]="Reprecentante";//cedula del reprecentante en la tabla persona para la relacion
+        Reprecentante->Cells[0][0]="Representante";//cedula del reprecentante en la tabla persona para la relacion
         Reprecentante->Cells[1][0]="Dir Oficina";
         Reprecentante->Cells[2][0]="Tlf Oficina";
         Reprecentante->Cells[3][0]="Otros";
@@ -41,5 +41,14 @@ void __fastcall TForm4::FormCreate(TObject *Sender)
         Empleado->Cells[5][0]="Cursos";
         Empleado->Cells[6][0]="Fecha Ingreso";
         Empleado->Cells[7][0]="Cargo";
+
+        Historia->Cells[0][0]="Cédula";
+        Historia->Cells[1][0]="Hijos M";
+        Historia->Cells[2][0]="Hijos F";
+        Historia->Cells[3][0]="Motivo";
+        Historia->Cells[4][0]="Antecedentes";
+        Historia->Cells[5][0]="Evaluación";
+        Historia->Cells[6][0]="Alergias";
+        Historia->Cells[7][0]="Código";
 }
 //---------------------------------------------------------------------------

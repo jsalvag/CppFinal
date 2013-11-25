@@ -12,7 +12,8 @@
 #pragma resource "*.dfm"
 TForm2 *Form2;
 Persona ppl;
-Reprecentante rep;
+Representante rep;
+Empleado emp;
 Limpiar l;
 //---------------------------------------------------------------------------
 __fastcall TForm2::TForm2(TComponent* Owner)
@@ -22,25 +23,36 @@ __fastcall TForm2::TForm2(TComponent* Owner)
 //---------------------------------------------------------------------------
 void __fastcall TForm2::Button2Click(TObject *Sender)
 {
-        String tipo;
-        if(Panel1->Visible==true)
+        MaskEdit1->SetFocus();
+        if(ppl.validarCI(MaskEdit1->Text) && ppl.validarNombre(Edit1->Text) && ppl.validarNombre(Edit2->Text)&& ppl.validarFechaNac(DateTimePicker1->Date.DateString()))
         {
-                tipo = "Paciente";
-                ppl.ingresarPersona(tipo);
+                if (ppl.buscarRepetido(MaskEdit1->Text))
+                {
+                        if(Panel1->Visible==true)
+                        {
+                                ppl.ingresarPersona("Paciente");
+                        }
+                        if(Panel2->Visible==true)
+                        {
+                                ppl.ingresarPersona("Representante");
+                                rep.ingresarRepresentate();
+                        }
+                        if(Button3->Visible==true)
+                        {
+                                ppl.ingresarPersona("Empleado");
+                                emp.ingresarEmpleado();
+                        }
+                        this->Close();
+                }
+                else
+                {
+                        ShowMessage("El número de cédula introducido ya se enecuentra el los registros");
+                }
         }
-        if(Panel2->Visible==true)
+        else
         {
-                tipo = "Reprecentante";
-                ppl.ingresarPersona(tipo);
-                rep.ingresarReprecentate();
+                ShowMessage("Debe llenar todos los campos correctamente");
         }
-        if(Button3->Visible==true)
-        {
-                tipo = "Empleado";
-                ppl.ingresarPersona(tipo);
-        }
-        this->Close();
-        l.limpiarRegistro();
 }
 //---------------------------------------------------------------------------
 
@@ -51,4 +63,5 @@ void __fastcall TForm2::Button3Click(TObject *Sender)
         Form3->Show();
 }
 //---------------------------------------------------------------------------
+
 

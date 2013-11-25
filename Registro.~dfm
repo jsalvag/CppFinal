@@ -1,6 +1,6 @@
 object Form2: TForm2
-  Left = 1068
-  Top = 356
+  Left = 761
+  Top = 177
   BorderStyle = bsToolWindow
   Caption = 'Registro'
   ClientHeight = 456
@@ -118,21 +118,6 @@ object Form2: TForm2
     Font.Name = 'MS Sans Serif'
     Font.Style = [fsBold]
     ParentFont = False
-  end
-  object MaskEdit1: TMaskEdit
-    Left = 192
-    Top = 8
-    Width = 145
-    Height = 28
-    EditMask = '00\.000\.000;0;_'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'MS Sans Serif'
-    Font.Style = [fsBold]
-    MaxLength = 10
-    ParentFont = False
-    TabOrder = 0
   end
   object Edit1: TEdit
     Left = 192
@@ -457,5 +442,20 @@ object Form2: TForm2
     TabOrder = 10
     Visible = False
     OnClick = Button3Click
+  end
+  object MaskEdit1: TMaskEdit
+    Left = 192
+    Top = 5
+    Width = 142
+    Height = 28
+    EditMask = '00\.000\.000;0;_'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    MaxLength = 10
+    ParentFont = False
+    TabOrder = 0
   end
 end

@@ -3,15 +3,13 @@
 <PROJECT>
   <MACROS>
     <VERSION value="BCB.06.00"/>
-    <PROJECT value="Project1.exe"/>
-    <OBJFILES value="Project1.obj Inicio.obj Clases.obj Registro.obj DLaborales.obj 
-      TablasDatos.obj Buscar.obj CrearHistoria.obj Modificar.obj"/>
-    <RESFILES value="Project1.res"/>
+    <PROJECT value="ProjectCppFinal.exe"/>
+    <OBJFILES value="ProjectCppFinal.obj Inicio.obj Clases.obj"/>
+    <RESFILES value="ProjectCppFinal.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
     <DEFFILE value=""/>
-    <RESDEPEN value="$(RESFILES) Inicio.dfm Registro.dfm DLaborales.dfm TablasDatos.dfm 
-      Buscar.dfm CrearHistoria.dfm Modificar.dfm"/>
+    <RESDEPEN value="$(RESFILES) Inicio.dfm"/>
     <LIBFILES value=""/>
     <LIBRARIES value=""/>
     <SPARELIBS value="vcl.lib rtl.lib"/>
@@ -31,7 +29,7 @@
     <LINKER value="ilink32"/>
     <USERDEFINES value="_DEBUG"/>
     <SYSDEFINES value="_RTLDLL;NO_STRICT;USEPACKAGES"/>
-    <MAINSOURCE value="Project1.cpp"/>
+    <MAINSOURCE value="ProjectCppFinal.cpp"/>
     <INCLUDEPATH value="&quot;C:\Program Files\Borland\CBuilder6\Projects&quot;;C:\Users\JSalvaG\Documents\GitHub\CppFinal;$(BCB)\include;$(BCB)\include\vcl"/>
     <LIBPATH value="&quot;C:\Program Files\Borland\CBuilder6\Projects&quot;;C:\Users\JSalvaG\Documents\GitHub\CppFinal;$(BCB)\lib\obj;$(BCB)\lib"/>
     <WARNINGS value="-w-par"/>
@@ -56,16 +54,10 @@
     <OTHERFILES value=""/>
   </LINKER>
   <FILELIST>
-      <FILE FILENAME="Project1.res" FORMNAME="" UNITNAME="Project1.res" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="Project1.cpp" FORMNAME="" UNITNAME="Project1" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="ProjectCppFinal.res" FORMNAME="" UNITNAME="ProjectCppFinal.res" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="ProjectCppFinal.cpp" FORMNAME="" UNITNAME="ProjectCppFinal" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Inicio.cpp" FORMNAME="Form1" UNITNAME="Inicio" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Clases.cpp" FORMNAME="" UNITNAME="Clases" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="Registro.cpp" FORMNAME="Form2" UNITNAME="Registro" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="DLaborales.cpp" FORMNAME="Form3" UNITNAME="DLaborales" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="TablasDatos.cpp" FORMNAME="Form4" UNITNAME="TablasDatos" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="Buscar.cpp" FORMNAME="Form5" UNITNAME="Buscar" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="CrearHistoria.cpp" FORMNAME="Form6" UNITNAME="CrearHistoria" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="Modificar.cpp" FORMNAME="Form7" UNITNAME="Modificar" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
   </FILELIST>
   <BUILDTOOLS>
   </BUILDTOOLS>

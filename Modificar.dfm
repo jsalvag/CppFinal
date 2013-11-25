@@ -1,10 +1,9 @@
-object Form2: TForm2
-  Left = 761
-  Top = 177
-  BorderStyle = bsToolWindow
-  Caption = 'Registro'
-  ClientHeight = 456
-  ClientWidth = 353
+object Form7: TForm7
+  Left = 978
+  Top = 222
+  Width = 369
+  Height = 495
+  Caption = 'Modificar'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -122,7 +121,7 @@ object Form2: TForm2
   object Edit1: TEdit
     Left = 192
     Top = 38
-    Width = 145
+    Width = 140
     Height = 28
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -135,7 +134,7 @@ object Form2: TForm2
   object Edit2: TEdit
     Left = 192
     Top = 68
-    Width = 145
+    Width = 140
     Height = 28
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -148,7 +147,7 @@ object Form2: TForm2
   object Edit3: TEdit
     Left = 192
     Top = 129
-    Width = 145
+    Width = 140
     Height = 28
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -161,7 +160,7 @@ object Form2: TForm2
   object Edit4: TEdit
     Left = 192
     Top = 159
-    Width = 145
+    Width = 140
     Height = 28
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -174,7 +173,7 @@ object Form2: TForm2
   object DateTimePicker1: TDateTimePicker
     Left = 192
     Top = 98
-    Width = 145
+    Width = 140
     Height = 28
     CalAlignment = dtaLeft
     Date = 41585.757921412
@@ -194,7 +193,7 @@ object Form2: TForm2
   object MaskEdit2: TMaskEdit
     Left = 192
     Top = 189
-    Width = 145
+    Width = 142
     Height = 28
     EditMask = '!\(9999\)000-0000;1;_'
     Font.Charset = DEFAULT_CHARSET
@@ -210,7 +209,7 @@ object Form2: TForm2
   object MaskEdit3: TMaskEdit
     Left = 192
     Top = 220
-    Width = 145
+    Width = 144
     Height = 28
     EditMask = '!\(9999\)000-0000;1;_'
     Font.Charset = DEFAULT_CHARSET
@@ -226,7 +225,7 @@ object Form2: TForm2
   object Panel1: TPanel
     Left = 8
     Top = 248
-    Width = 337
+    Width = 336
     Height = 73
     TabOrder = 8
     Visible = False
@@ -299,7 +298,7 @@ object Form2: TForm2
   object Panel2: TPanel
     Left = 8
     Top = 248
-    Width = 337
+    Width = 336
     Height = 169
     TabOrder = 9
     Visible = False
@@ -415,7 +414,7 @@ object Form2: TForm2
   object Button2: TButton
     Left = 112
     Top = 424
-    Width = 129
+    Width = 128
     Height = 25
     Caption = 'Guardar'
     Font.Charset = DEFAULT_CHARSET
@@ -430,7 +429,7 @@ object Form2: TForm2
   object Button3: TButton
     Left = 112
     Top = 320
-    Width = 129
+    Width = 128
     Height = 25
     Caption = 'Informaci'#243'n Laboral'
     Font.Charset = DEFAULT_CHARSET
@@ -441,21 +440,14 @@ object Form2: TForm2
     ParentFont = False
     TabOrder = 10
     Visible = False
-    OnClick = Button3Click
   end
-  object MaskEdit1: TMaskEdit
+  object ComboBox2: TComboBox
     Left = 192
-    Top = 5
-    Width = 142
-    Height = 28
-    EditMask = '00\.000\.000;0;_'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'MS Sans Serif'
-    Font.Style = [fsBold]
-    MaxLength = 10
-    ParentFont = False
+    Top = 16
+    Width = 145
+    Height = 21
+    ItemHeight = 13
     TabOrder = 0
+    OnChange = ComboBox2Change
   end
 end

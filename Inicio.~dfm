@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 436
-  Top = 134
+  Left = 334
+  Top = 90
   Width = 565
   Height = 563
   Caption = 'Fundaci'#243'n "Esperanza de Luz" Centro Geri'#225'trico'
@@ -16,8 +16,8 @@ object Form1: TForm1
   PixelsPerInch = 96
   TextHeight = 13
   object Menu1: TMainMenu
-    Left = 56
-    Top = 24
+    Left = 456
+    Top = 448
     object Archivo1: TMenuItem
       Caption = 'Archivo'
       object Salir1: TMenuItem
@@ -35,16 +35,25 @@ object Form1: TForm1
         end
         object Buscar1: TMenuItem
           Caption = 'Buscar'
+          OnClick = Buscar1Click
         end
         object Modificar1: TMenuItem
           Caption = 'Modificar'
+          OnClick = Modificar1Click
         end
       end
       object Reprecentante1: TMenuItem
-        Caption = 'Reprecentante'
+        Caption = 'Representante'
         object Registrar1: TMenuItem
           Caption = 'Registrar'
           OnClick = Registrar1Click
+        end
+        object Buscar2: TMenuItem
+          Caption = 'Buscar'
+          OnClick = Buscar2Click
+        end
+        object Modificar2: TMenuItem
+          Caption = 'Modificar'
         end
       end
       object Empleado1: TMenuItem
@@ -53,6 +62,68 @@ object Form1: TForm1
           Caption = 'Registrar'
           OnClick = Registrar2Click
         end
+        object Buscar3: TMenuItem
+          Caption = 'Buscar'
+          OnClick = Buscar3Click
+        end
+        object Modificar3: TMenuItem
+          Caption = 'Modificar'
+        end
+      end
+    end
+    object Historias1: TMenuItem
+      Caption = 'Historias'
+      object Crear1: TMenuItem
+        Caption = 'Crear'
+        OnClick = Crear1Click
+      end
+      object Ver1: TMenuItem
+        Caption = 'Ver'
+      end
+      object Modificar4: TMenuItem
+        Caption = 'Modificar'
+      end
+    end
+    object Citas1: TMenuItem
+      Caption = 'Citas'
+      object CrearCita1: TMenuItem
+        Caption = 'Crear Cita'
+      end
+      object VerCitas1: TMenuItem
+        Caption = 'Ver Citas'
+      end
+    end
+    object Reportes1: TMenuItem
+      Caption = 'Reportes'
+      object Pacientes1: TMenuItem
+        Caption = 'Pacientes'
+        object ListadePacientes1: TMenuItem
+          Caption = 'Lista de Pacientes'
+        end
+        object ImprimirArchivodePaciente1: TMenuItem
+          Caption = 'Archivo de Paciente'
+        end
+        object ImprimirHistoria1: TMenuItem
+          Caption = 'Historia'
+        end
+      end
+      object Empleado2: TMenuItem
+        Caption = 'Empleado'
+        object ListadeEmpleados1: TMenuItem
+          Caption = 'Lista de Empleados'
+        end
+        object ImprimirArchivodeEmpleado1: TMenuItem
+          Caption = 'Archivo de Empleado'
+        end
+      end
+    end
+    object Estadisticas1: TMenuItem
+      Caption = 'Estadisticas'
+      object PacientesporEdad1: TMenuItem
+        Caption = 'Promedio de Edad'
+      end
+      object PromediodeCitas21: TMenuItem
+        Caption = 'Promedio de Citas'
       end
     end
     object Datos1: TMenuItem

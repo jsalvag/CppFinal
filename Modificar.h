@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 
-#ifndef RegistroH
-#define RegistroH
+#ifndef ModificarH
+#define ModificarH
 //---------------------------------------------------------------------------
 #include <Classes.hpp>
 #include <Controls.hpp>
@@ -11,7 +11,7 @@
 #include <ExtCtrls.hpp>
 #include <Mask.hpp>
 //---------------------------------------------------------------------------
-class TForm2 : public TForm
+class TForm7 : public TForm
 {
 __published:	// IDE-managed Components
         TLabel *Label1;
@@ -31,29 +31,29 @@ __published:	// IDE-managed Components
         TMaskEdit *MaskEdit3;
         TPanel *Panel1;
         TLabel *Label9;
-        TEdit *Edit5;
         TLabel *Label10;
         TLabel *Label11;
+        TEdit *Edit5;
         TEdit *Edit6;
         TPanel *Panel2;
         TLabel *Label12;
-        TEdit *Edit7;
         TLabel *Label13;
-        TMaskEdit *MaskEdit4;
         TLabel *Label14;
-        TMemo *Memo1;
-        TButton *Button2;
         TLabel *Label15;
+        TEdit *Edit7;
+        TMaskEdit *MaskEdit4;
+        TMemo *Memo1;
         TComboBox *ComboBox1;
+        TButton *Button2;
         TButton *Button3;
-        TMaskEdit *MaskEdit1;
+        TComboBox *ComboBox2;
         void __fastcall Button2Click(TObject *Sender);
-        void __fastcall Button3Click(TObject *Sender);
+        void __fastcall ComboBox2Change(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
-        __fastcall TForm2(TComponent* Owner);
+        __fastcall TForm7(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TForm2 *Form2;
+extern PACKAGE TForm7 *Form7;
 //---------------------------------------------------------------------------
 #endif

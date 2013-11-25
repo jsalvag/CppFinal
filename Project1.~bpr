@@ -4,12 +4,14 @@
   <MACROS>
     <VERSION value="BCB.06.00"/>
     <PROJECT value="Project1.exe"/>
-    <OBJFILES value="Project1.obj Inicio.obj Clases.obj Registro.obj DLaborales.obj"/>
+    <OBJFILES value="Project1.obj Inicio.obj Clases.obj Registro.obj DLaborales.obj 
+      TablasDatos.obj Buscar.obj CrearHistoria.obj"/>
     <RESFILES value="Project1.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
     <DEFFILE value=""/>
-    <RESDEPEN value="$(RESFILES) Inicio.dfm Registro.dfm DLaborales.dfm"/>
+    <RESDEPEN value="$(RESFILES) Inicio.dfm Registro.dfm DLaborales.dfm TablasDatos.dfm 
+      Buscar.dfm CrearHistoria.dfm"/>
     <LIBFILES value=""/>
     <LIBRARIES value=""/>
     <SPARELIBS value="vcl.lib rtl.lib"/>
@@ -60,6 +62,9 @@
       <FILE FILENAME="Clases.cpp" FORMNAME="" UNITNAME="Clases" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Registro.cpp" FORMNAME="Form2" UNITNAME="Registro" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="DLaborales.cpp" FORMNAME="Form3" UNITNAME="DLaborales" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="TablasDatos.cpp" FORMNAME="Form4" UNITNAME="TablasDatos" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Buscar.cpp" FORMNAME="Form5" UNITNAME="Buscar" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="CrearHistoria.cpp" FORMNAME="Form6" UNITNAME="CrearHistoria" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
   </FILELIST>
   <BUILDTOOLS>
   </BUILDTOOLS>

@@ -4,33 +4,53 @@
 #define ClasesH
 class Limpiar{
 public:
-        void limpiarRegistro();        
+        void limpiarRegistro();
+        void LimpiarModificar();
 };
+
 class Persona{
 public:
         int x;
-        String ci, nom, ape,fNac, lNac, dir, tlf1, tlf2, tipo, rel;
 
         Persona();
         void ingresarPersona(String tipo);
+        bool validarCI(String ci);
+        bool validarNombre(String nom);
+        bool validarFechaNac(String f);
+        bool buscarRepetido(String ci);
+        int calcularEdad(String fecha);
+        void buscarDatos(String ci);
 };
 
 
 class Empleado: public Persona{
 public:
-        String nivelEdu, cole, titulo, expe, cursos, fIngreso, cargo;
+        int z;
+                                
+        Empleado();
+        void ingresarEmpleado();
 
 };
 
-class Reprecentante: public Persona{
+class Representante: public Persona{
 public:
         int y;
-        String dirOfi, tlfOfi, otro;
 
-        Reprecentante();
+        Representante();
         void listarRel();
-        void ingresarReprecentate();
+        void ingresarRepresentate();
 
 };
+
+class Paciente: public Persona{
+public:
+        int codHist;
+        void listar();
+        void ListarModificar(String tipo);
+        String* DatosModificar(String ci);
+        void GuardarHistoria(String ci);
+        Paciente();
+};
+
 //---------------------------------------------------------------------------
 #endif
