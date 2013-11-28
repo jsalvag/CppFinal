@@ -230,7 +230,7 @@ void Paciente::listar()
 {
         for(int i=1;i<Form4->Persona->RowCount;i++)
         {
-                Form6->ComboBox1->Items->Add(Form4->Persona->Cells[3][i]+" "+Form4->Persona->Cells[2][i]);
+                Form6->ComboBox1->Items->Add(Form4->Persona->Cells[1][i]+" - "+Form4->Persona->Cells[3][i]+", "+Form4->Persona->Cells[2][i]);
         }
 }
 
@@ -312,20 +312,23 @@ String* Paciente::DatosModificar(String ci)
 
                 }
         }
-
         return datos;
 }
 
 void Paciente::GuardarHistoria(String ci)
 {
+        ShowMessage(ci);
         bool a = false;
         for(int i = 1;i<Form4->Historia->RowCount;i++)
         {
                 if(Form4->Historia->Cells[0][i]==ci)
                 {
                         a = true;
-                        ShowMessage("ok");
-
+                        ShowMessage("Encontrado en el indice "+IntToStr(i));
+                        Form4->Historia->Cells[3][i]+="-"+Form6->Memo1->Text;
+                        Form4->Historia->Cells[4][i]+="-"+Form6->Memo2->Text;
+                        Form4->Historia->Cells[5][i]+="-"+Form6->Memo3->Text;
+                        Form4->Historia->Cells[6][i]+="-"+Form6->Memo4->Text;
                 }
         }
         if(!a)
@@ -333,6 +336,11 @@ void Paciente::GuardarHistoria(String ci)
                 codHist++;
                 if(Form4->Historia->RowCount<=codHist)
                         Form4->Historia->RowCount++;
-
+                Form4->Historia->Cells[0][codHist]=ci;
+                Form4->Historia->Cells[3][codHist]=Form6->Memo1->Text;
+                Form4->Historia->Cells[4][codHist]=Form6->Memo2->Text;
+                Form4->Historia->Cells[5][codHist]=Form6->Memo3->Text;
+                Form4->Historia->Cells[6][codHist]=Form6->Memo4->Text;
+                Form4->Historia->Cells[7][codHist]=codHist;
         }
 }

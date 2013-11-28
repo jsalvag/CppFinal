@@ -54,6 +54,7 @@ object Form1: TForm1
         end
         object Modificar2: TMenuItem
           Caption = 'Modificar'
+          OnClick = Modificar2Click
         end
       end
       object Empleado1: TMenuItem
@@ -68,6 +69,7 @@ object Form1: TForm1
         end
         object Modificar3: TMenuItem
           Caption = 'Modificar'
+          OnClick = Modificar3Click
         end
       end
     end

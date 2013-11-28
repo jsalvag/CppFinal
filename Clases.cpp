@@ -112,6 +112,7 @@ void Limpiar::limpiarRegistro()
         Form2->Edit7->Clear();
         Form2->DateTimePicker1->Date=Date().CurrentDate();
         Form2->Memo1->Clear();
+        Form2->ComboBox1->Clear();
 
         Form3->ComboBox1->Clear();
         Form3->Edit1->Clear();
@@ -230,6 +231,7 @@ void Paciente::listar()
 {
         for(int i=1;i<Form4->Persona->RowCount;i++)
         {
+                if(Form4->Persona->Cells[9][i]=="Paciente")
                 Form6->ComboBox1->Items->Add(Form4->Persona->Cells[1][i]+" - "+Form4->Persona->Cells[3][i]+", "+Form4->Persona->Cells[2][i]);
         }
 }
@@ -343,4 +345,13 @@ void Paciente::GuardarHistoria(String ci)
                 Form4->Historia->Cells[6][codHist]=Form6->Memo4->Text;
                 Form4->Historia->Cells[7][codHist]=codHist;
         }
+}
+
+void Limpiar::LimpiarHistoria()
+{
+        Form6->ComboBox1->Clear();
+        Form6->Memo1->Clear();
+        Form6->Memo2->Clear();
+        Form6->Memo3->Clear();
+        Form6->Memo4->Clear();
 }

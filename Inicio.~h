@@ -59,6 +59,8 @@ __published:	// IDE-managed Components
         void __fastcall Buscar3Click(TObject *Sender);
         void __fastcall Crear1Click(TObject *Sender);
         void __fastcall Modificar1Click(TObject *Sender);
+        void __fastcall Modificar2Click(TObject *Sender);
+        void __fastcall Modificar3Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TForm1(TComponent* Owner);

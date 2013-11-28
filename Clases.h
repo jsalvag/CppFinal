@@ -6,6 +6,7 @@ class Limpiar{
 public:
         void limpiarRegistro();
         void LimpiarModificar();
+        void LimpiarHistoria();
 };
 
 class Persona{
