@@ -51,7 +51,7 @@
 			"file": "Registro.cpp",
 			"settings":
 			{
-				"buffer_size": 2181,
+				"buffer_size": 2182,
 				"line_ending": "Windows"
 			}
 		},
@@ -59,7 +59,15 @@
 			"file": "Clases.cpp",
 			"settings":
 			{
-				"buffer_size": 11392,
+				"buffer_size": 11683,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/Descargas/MPSOFTWARE.phpDesigner.v8.1.2.10.Portable.MULTILINGUAL-CRD/MPSOFTWARE.phpDesigner.v8.1.2.10.Portable.MULTILINGUAL-CRD/Instrucciones.txt",
+			"settings":
+			{
+				"buffer_size": 1710,
 				"line_ending": "Windows"
 			}
 		},
@@ -67,7 +75,7 @@
 			"file": "Clases.h",
 			"settings":
 			{
-				"buffer_size": 1161,
+				"buffer_size": 1193,
 				"line_ending": "Windows"
 			}
 		}
@@ -159,7 +167,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -167,7 +175,7 @@
 					"file": "Registro.cpp",
 					"settings":
 					{
-						"buffer_size": 2181,
+						"buffer_size": 2182,
 						"regions":
 						{
 						},
@@ -195,7 +203,7 @@
 					"file": "Clases.cpp",
 					"settings":
 					{
-						"buffer_size": 11392,
+						"buffer_size": 11683,
 						"regions":
 						{
 						},
@@ -220,10 +228,36 @@
 				},
 				{
 					"buffer": 2,
+					"file": "/D/Descargas/MPSOFTWARE.phpDesigner.v8.1.2.10.Portable.MULTILINGUAL-CRD/MPSOFTWARE.phpDesigner.v8.1.2.10.Portable.MULTILINGUAL-CRD/Instrucciones.txt",
+					"settings":
+					{
+						"buffer_size": 1710,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
 					"file": "Clases.h",
 					"settings":
 					{
-						"buffer_size": 1161,
+						"buffer_size": 1193,
 						"regions":
 						{
 						},
