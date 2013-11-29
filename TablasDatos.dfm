@@ -90,4 +90,21 @@ object Form4: TForm4
       107
       52)
   end
+  object Edit1: TEdit
+    Left = 8
+    Top = 608
+    Width = 121
+    Height = 21
+    TabOrder = 4
+    Text = 'Ci'
+  end
+  object Button1: TButton
+    Left = 136
+    Top = 608
+    Width = 75
+    Height = 25
+    Caption = 'Buscar'
+    TabOrder = 5
+    OnClick = Button1Click
+  end
 end

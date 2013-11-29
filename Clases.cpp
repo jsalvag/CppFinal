@@ -61,6 +61,7 @@ void Representante::listarRel()
         int a = Form4->Persona->RowCount-1;
         while(i<=a)
         {
+                if(Form4->Persona->Cells[9][i]=="Paciente")
                 Form2->ComboBox1->Items->Add(Form4->Persona->Cells[2][i]+" "+Form4->Persona->Cells[3][i]);
                 i++;
         }
@@ -193,37 +194,80 @@ int Persona::calcularEdad(String fecha)
         return (fa-f)/365.25;
 }
 
-void Persona::buscarDatos(String ci)
+String* Persona::buscarDatos(String ci)
 {
+        String* dato = new String[20];
+        dato[0]=ci;
         for(int i=1;i<Form4->Persona->RowCount;i++)
         {
                 if (Form4->Persona->Cells[1][i]==ci)
                 {
-                        Form5->tipo_lb->Caption=Form4->Persona->Cells[9][i];
-                        Form5->nom_lb->Caption=Form4->Persona->Cells[2][i];
-                        Form5->ape_lb->Caption=Form4->Persona->Cells[3][i];
-                        Form5->ed_lb->Caption=calcularEdad(Form4->Persona->Cells[4][i]);
-                        Form5->dir_lb->Caption=Form4->Persona->Cells[6][i];
-                        Form5->fNac_lb->Caption=Form4->Persona->Cells[5][i];
-                        Form5->tlfF_lb->Caption=Form4->Persona->Cells[7][i];
-                        Form5->tlfM_lb->Caption=Form4->Persona->Cells[8][i];
+                        Form5->tipo_lb->Caption=dato[1]=Form4->Persona->Cells[9][i];
+                        Form5->nom_lb->Caption=dato[2]=Form4->Persona->Cells[2][i];
+                        Form5->ape_lb->Caption=dato[3]=Form4->Persona->Cells[3][i];
+                        dato[4]=Form4->Persona->Cells[4][i];
+                        Form5->ed_lb->Caption=dato[5]=calcularEdad(Form4->Persona->Cells[4][i]);
+                        Form5->fNac_lb->Caption=dato[6]=Form4->Persona->Cells[5][i];
+                        Form5->dir_lb->Caption=dato[7]=Form4->Persona->Cells[6][i];
+                        Form5->tlfF_lb->Caption=dato[8]=Form4->Persona->Cells[7][i];
+                        Form5->tlfM_lb->Caption=dato[9]=Form4->Persona->Cells[8][i];
                         
                         if(Form4->Persona->Cells[9][i]=="Paciente")
                         {
+                                Form5->Label9->Visible=false;
+                                Form5->rel_lb->Visible=false;
+                                for(int j=1;j<Form4->Historia->RowCount;j++)
+                                {
+                                        if(ci==Form4->Historia->Cells[0][i])
+                                        {
+                                                dato[10]=Form4->Historia->Cells[1][j];
+                                                dato[11]=Form4->Historia->Cells[2][j];
+                                                dato[12]=Form4->Historia->Cells[3][j];
+                                                dato[13]=Form4->Historia->Cells[4][j];
+                                                dato[14]=Form4->Historia->Cells[5][j];
+                                                dato[15]=Form4->Historia->Cells[6][j];
+                                                dato[16]=Form4->Historia->Cells[7][j];
+                                        }
+                                }
                         }
                         
                         if(Form4->Persona->Cells[9][i]=="Representante")
                         {
                                 Form5->Label9->Visible=true;
                                 Form5->rel_lb->Visible=true;
-                                Form5->rel_lb->Caption=Form4->Persona->Cells[10][i];
+                                Form5->rel_lb->Caption=dato[10]=Form4->Persona->Cells[10][i];
+                                for(int j=1;j<Form4->Reprecentante->RowCount;j++)
+                                {
+                                        if(ci==Form4->Reprecentante->Cells[0][j])
+                                        {
+                                                dato[11]=Form4->Reprecentante->Cells[1][j];
+                                                dato[12]=Form4->Reprecentante->Cells[2][j];
+                                                dato[13]=Form4->Reprecentante->Cells[3][j];
+                                        }
+                                }
                         }
                         
                         if(Form4->Persona->Cells[9][i]=="Empleado")
-                        {
+                        {                      
+                                Form5->Label9->Visible=false;
+                                Form5->rel_lb->Visible=false;
+                                for(int j=1;j<Form4->Empleado->RowCount;j++)
+                                {
+                                        if(ci==Form4->Empleado->Cells[0][j])
+                                        {
+                                                dato[11]=Form4->Empleado->Cells[1][j];
+                                                dato[12]=Form4->Empleado->Cells[2][j];
+                                                dato[13]=Form4->Empleado->Cells[3][j];
+                                                dato[14]=Form4->Empleado->Cells[4][j];
+                                                dato[15]=Form4->Empleado->Cells[5][j];
+                                                dato[16]=Form4->Empleado->Cells[6][j];
+                                                dato[17]=Form4->Empleado->Cells[7][j];
+                                        }
+                                }
                         }       
                 }
         }
+        return dato;
 }
 
 
@@ -319,7 +363,6 @@ String* Paciente::DatosModificar(String ci)
 
 void Paciente::GuardarHistoria(String ci)
 {
-        ShowMessage(ci);
         bool a = false;
         for(int i = 1;i<Form4->Historia->RowCount;i++)
         {
@@ -354,4 +397,49 @@ void Limpiar::LimpiarHistoria()
         Form6->Memo2->Clear();
         Form6->Memo3->Clear();
         Form6->Memo4->Clear();
+        Form6->cod_lb->Caption=Form4->Historia->RowCount-1;
+}
+
+void Paciente::VerHistoria(String ci, bool mod)
+{
+        Form6->ComboBox1->Text=ci;
+        for(int i = 1;i<Form4->Historia->RowCount;i++)
+        {
+                if(ci==Form4->Historia->Cells[0][i])
+                {
+                        
+                }
+        }
+}
+
+void Limpiar::LimpiarBuscar()
+{
+        Form5->MaskEdit1->Clear();
+        Form5->tipo_lb->Caption="";
+        Form5->nom_lb->Caption="";
+        Form5->ape_lb->Caption="";
+        Form5->ed_lb->Caption="";
+        Form5->dir_lb->Caption="";
+        Form5->fNac_lb->Caption="";
+        Form5->tlfF_lb->Caption="";
+        Form5->tlfM_lb->Caption="";
+        Form5->rel_lb->Caption="";
+}
+
+void Persona::Modificar(String ci)
+{
+        ShowMessage(ci);
+        for(int i=1;i<Form4->Persona->RowCount;i++)
+        {
+                if(ci==Form4->Persona->Cells[1][i])
+                {
+                        Form4->Persona->Cells[2][i]=Form7->Edit1->Text;
+                        Form4->Persona->Cells[3][i]=Form7->Edit2->Text;
+                        Form4->Persona->Cells[4][i]=Form7->DateTimePicker1->Date.DateString();
+                        Form4->Persona->Cells[5][i]=Form7->Edit3->Text;
+                        Form4->Persona->Cells[6][i]=Form7->Edit4->Text;
+                        Form4->Persona->Cells[7][i]=Form7->MaskEdit2->Text;
+                        Form4->Persona->Cells[8][i]=Form7->MaskEdit3->Text;
+                }
+        }
 }

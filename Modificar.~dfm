@@ -448,5 +448,6 @@ object Form7: TForm7
     Height = 21
     ItemHeight = 13
     TabOrder = 0
+    OnChange = ComboBox2Change
   end
 end

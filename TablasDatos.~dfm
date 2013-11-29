@@ -77,15 +77,17 @@ object Form4: TForm4
     Width = 809
     Height = 153
     Align = alTop
-    ColCount = 6
+    ColCount = 8
     RowCount = 2
     TabOrder = 3
     ColWidths = (
       64
-      135
-      178
-      175
-      169
-      79)
+      49
+      51
+      163
+      162
+      149
+      107
+      52)
   end
 end

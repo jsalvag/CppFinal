@@ -1,6 +1,6 @@
 object Form5: TForm5
-  Left = 298
-  Top = 100
+  Left = 198
+  Top = 127
   Width = 369
   Height = 495
   Caption = 'Buscar'
@@ -11,7 +11,6 @@ object Form5: TForm5
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
@@ -28,7 +27,7 @@ object Form5: TForm5
     ParentFont = False
   end
   object Label2: TLabel
-    Left = 24
+    Left = 32
     Top = 76
     Width = 68
     Height = 20
@@ -41,7 +40,7 @@ object Form5: TForm5
     ParentFont = False
   end
   object Label3: TLabel
-    Left = 22
+    Left = 30
     Top = 99
     Width = 70
     Height = 20
@@ -54,7 +53,7 @@ object Form5: TForm5
     ParentFont = False
   end
   object Label4: TLabel
-    Left = 44
+    Left = 52
     Top = 122
     Width = 48
     Height = 20
@@ -67,7 +66,7 @@ object Form5: TForm5
     ParentFont = False
   end
   object Label5: TLabel
-    Left = 11
+    Left = 19
     Top = 146
     Width = 81
     Height = 20
@@ -80,7 +79,7 @@ object Form5: TForm5
     ParentFont = False
   end
   object Label7: TLabel
-    Left = 32
+    Left = 40
     Top = 192
     Width = 60
     Height = 20
@@ -93,7 +92,7 @@ object Form5: TForm5
     ParentFont = False
   end
   object Label8: TLabel
-    Left = 21
+    Left = 29
     Top = 216
     Width = 71
     Height = 20
@@ -106,7 +105,7 @@ object Form5: TForm5
     ParentFont = False
   end
   object Label6: TLabel
-    Left = 4
+    Left = 12
     Top = 169
     Width = 88
     Height = 20
@@ -119,7 +118,7 @@ object Form5: TForm5
     ParentFont = False
   end
   object nom_lb: TLabel
-    Left = 96
+    Left = 104
     Top = 76
     Width = 35
     Height = 20
@@ -132,7 +131,7 @@ object Form5: TForm5
     ParentFont = False
   end
   object ape_lb: TLabel
-    Left = 96
+    Left = 104
     Top = 99
     Width = 31
     Height = 20
@@ -145,7 +144,7 @@ object Form5: TForm5
     ParentFont = False
   end
   object ed_lb: TLabel
-    Left = 96
+    Left = 104
     Top = 122
     Width = 21
     Height = 20
@@ -158,7 +157,7 @@ object Form5: TForm5
     ParentFont = False
   end
   object dir_lb: TLabel
-    Left = 96
+    Left = 104
     Top = 146
     Width = 21
     Height = 20
@@ -171,7 +170,7 @@ object Form5: TForm5
     ParentFont = False
   end
   object fNac_lb: TLabel
-    Left = 96
+    Left = 104
     Top = 169
     Width = 38
     Height = 20
@@ -184,7 +183,7 @@ object Form5: TForm5
     ParentFont = False
   end
   object tlfF_lb: TLabel
-    Left = 96
+    Left = 104
     Top = 192
     Width = 28
     Height = 20
@@ -197,7 +196,7 @@ object Form5: TForm5
     ParentFont = False
   end
   object tlfM_lb: TLabel
-    Left = 96
+    Left = 104
     Top = 216
     Width = 31
     Height = 20
@@ -210,11 +209,11 @@ object Form5: TForm5
     ParentFont = False
   end
   object Label9: TLabel
-    Left = 21
+    Left = 4
     Top = 240
-    Width = 68
+    Width = 96
     Height = 20
-    Caption = 'Estatus:'
+    Caption = 'Relacinado:'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -224,7 +223,7 @@ object Form5: TForm5
     Visible = False
   end
   object rel_lb: TLabel
-    Left = 96
+    Left = 104
     Top = 240
     Width = 21
     Height = 20
@@ -293,6 +292,21 @@ object Form5: TForm5
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 2
+    Visible = False
+  end
+  object Button1: TButton
+    Left = 120
+    Top = 304
+    Width = 105
+    Height = 25
+    Caption = 'Datos Laborales'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 3
     Visible = False
   end
 end

@@ -4,10 +4,17 @@
 #pragma hdrstop
 
 #include "TablasDatos.h"
+#include "Clases.h"
+#include "Buscar.h"
+#include "CrearHistoria.h"
+#include "Inicio.h"
+#include "Modificar.h"
+#include "Registro.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 TForm4 *Form4;
+Persona ppl;
 //---------------------------------------------------------------------------
 __fastcall TForm4::TForm4(TComponent* Owner)
         : TForm(Owner)
@@ -52,3 +59,20 @@ void __fastcall TForm4::FormCreate(TObject *Sender)
         Historia->Cells[7][0]="Código";
 }
 //---------------------------------------------------------------------------
+void __fastcall TForm4::Button1Click(TObject *Sender)
+{
+        String* datos = ppl.buscarDatos(Edit1->Text);
+        ShowMessage(
+                "Tipo:\t"+datos[1]+
+                "\nNombre:\t"+datos[2]+
+                "\nApellido:\t"+datos[3]+
+                "\nF Nac:\t"+datos[4]+
+                "\nEdad:\t"+datos[5]+
+                "\nL Nac:\t"+datos[6]+
+                "\nDirecc:\t"+datos[7]+
+                "\nTlf Fijo:\t"+datos[8]+
+                "\nTlf Movl:\t"+datos[9]
+                );
+}
+//---------------------------------------------------------------------------
+

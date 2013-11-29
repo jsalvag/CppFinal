@@ -18,9 +18,17 @@ __fastcall TForm6::TForm6(TComponent* Owner)
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm6::Button2Click(TObject *Sender)
-{
-        pac.GuardarHistoria(ComboBox1->Text.SubString(0,8));
-        this->Close();        
+{                
+        if(ComboBox1->Text!="")
+        {
+                pac.GuardarHistoria(ComboBox1->Text.SubString(0,8));
+                this->Close();
+        }
+        else
+        {
+                ShowMessage("Campor Cédula Vacío.");
+                ComboBox1->SetFocus();
+        }
 }
 //---------------------------------------------------------------------------
 

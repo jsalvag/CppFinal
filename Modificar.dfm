@@ -416,7 +416,7 @@ object Form7: TForm7
     Top = 424
     Width = 128
     Height = 25
-    Caption = 'Guardar'
+    Caption = 'Modificar'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16

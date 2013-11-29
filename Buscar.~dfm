@@ -1,6 +1,6 @@
 object Form5: TForm5
-  Left = 10
-  Top = 91
+  Left = 298
+  Top = 100
   Width = 369
   Height = 495
   Caption = 'Buscar'
@@ -279,5 +279,20 @@ object Form5: TForm5
     ParentFont = False
     TabOrder = 1
     OnClick = buscar_btnClick
+  end
+  object historia_btn: TButton
+    Left = 136
+    Top = 288
+    Width = 75
+    Height = 25
+    Caption = 'Ver Historia'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 2
+    Visible = False
   end
 end

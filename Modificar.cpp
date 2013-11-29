@@ -10,6 +10,7 @@
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 TForm7 *Form7;
+Persona ppl;
 Paciente pac;
 //---------------------------------------------------------------------------
 __fastcall TForm7::TForm7(TComponent* Owner)
@@ -19,7 +20,8 @@ __fastcall TForm7::TForm7(TComponent* Owner)
 //---------------------------------------------------------------------------
 void __fastcall TForm7::Button2Click(TObject *Sender)
 {
-        this->Close();        
+        ppl.Modificar(ComboBox2->Text.SubString(0,8));
+        this->Close();
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm7::ComboBox2Change(TObject *Sender)

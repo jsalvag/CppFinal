@@ -38,9 +38,9 @@ void __fastcall TForm1::Nuevo1Click(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Registrar1Click(TObject *Sender)
 {
-        rep.listarRel();
         Form2->Show();
         l.limpiarRegistro();
+        rep.listarRel();
         Form2->Panel2->Visible=true;
 
 }
@@ -81,7 +81,6 @@ void __fastcall TForm1::Buscar3Click(TObject *Sender)
 
 void __fastcall TForm1::Crear1Click(TObject *Sender)
 {
-        l.LimpiarHistoria();
         Form6->Show();
         pac.listar();
 }

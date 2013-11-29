@@ -7,6 +7,7 @@ public:
         void limpiarRegistro();
         void LimpiarModificar();
         void LimpiarHistoria();
+        void LimpiarBuscar();
 };
 
 class Persona{
@@ -20,7 +21,8 @@ public:
         bool validarFechaNac(String f);
         bool buscarRepetido(String ci);
         int calcularEdad(String fecha);
-        void buscarDatos(String ci);
+        String* buscarDatos(String ci);
+        void Modificar(String ci);
 };
 
 
@@ -51,6 +53,7 @@ public:
         String* DatosModificar(String ci);
         void GuardarHistoria(String ci);
         Paciente();
+        void VerHistoria(String ci, bool mod);
 };
 
 //---------------------------------------------------------------------------

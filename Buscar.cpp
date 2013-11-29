@@ -28,16 +28,4 @@ void __fastcall TForm5::buscar_btnClick(TObject *Sender)
         }
 }
 //---------------------------------------------------------------------------
-void __fastcall TForm5::FormCreate(TObject *Sender)
-{
-        tipo_lb->Caption="";
-        nom_lb->Caption="";
-        ape_lb->Caption="";
-        ed_lb->Caption="";
-        dir_lb->Caption="";
-        fNac_lb->Caption="";
-        tlfF_lb->Caption="";
-        tlfM_lb->Caption="";
-        rel_lb->Caption="";
-}
-//---------------------------------------------------------------------------
+
