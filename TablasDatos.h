@@ -18,6 +18,7 @@ __published:	// IDE-managed Components
         TStringGrid *Historia;
         TEdit *Edit1;
         TButton *Button1;
+        TStringGrid *Citas;
         void __fastcall FormCreate(TObject *Sender);
         void __fastcall Button1Click(TObject *Sender);
 private:	// User declarations

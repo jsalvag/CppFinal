@@ -12,6 +12,9 @@
 #include "Buscar.h"
 #include "CrearHistoria.h"
 #include "Modificar.h"
+#include "Listas.h"
+#include "ReprteListas.h"
+#include "ReporteArchivo.h"
 
 //---------------------------------------------------------------------------
 
@@ -24,6 +27,7 @@ Persona::Persona()
 Paciente::Paciente()
 {
         codHist = 0;
+        cita = 0;
 }
 
 Representante::Representante()
@@ -62,7 +66,7 @@ void Representante::listarRel()
         while(i<=a)
         {
                 if(Form4->Persona->Cells[9][i]=="Paciente")
-                Form2->ComboBox1->Items->Add(Form4->Persona->Cells[2][i]+" "+Form4->Persona->Cells[3][i]);
+                Form2->ComboBox1->Items->Add(Form4->Persona->Cells[1][i]+" - "+Form4->Persona->Cells[2][i]+" "+Form4->Persona->Cells[3][i]);
                 i++;
         }
 }
@@ -73,7 +77,7 @@ void Representante::ingresarRepresentate()
                 Form4->Reprecentante->RowCount++;
         y++;
         int a = Form4->Persona->RowCount-1;
-        Form4->Persona->Cells[10][a]=Form4->Persona->Cells[1][Form2->ComboBox1->ItemIndex+1];
+        Form4->Persona->Cells[10][a]=Form2->ComboBox1->Text.SubString(0,8);
 
         Form4->Reprecentante->Cells[0][y]=Form2->MaskEdit1->Text;
         Form4->Reprecentante->Cells[1][y]=Form2->Edit7->Text;
@@ -85,10 +89,9 @@ void Empleado::ingresarEmpleado()
 {
         while(Form4->Empleado->RowCount<=z+1)
                 Form4->Empleado->RowCount++;
-
         z++;
         Form4->Empleado->Cells[0][z]=Form2->MaskEdit1->Text;
-        Form4->Empleado->Cells[1][z]=Form3->ComboBox1->ItemIndex;
+        Form4->Empleado->Cells[1][z]=Form3->ComboBox1->Text;
         Form4->Empleado->Cells[2][z]=Form3->Edit1->Text;
         Form4->Empleado->Cells[3][z]=Form3->Edit2->Text;
         Form4->Empleado->Cells[4][z]=Form3->Memo1->Text;
@@ -96,38 +99,6 @@ void Empleado::ingresarEmpleado()
         Form4->Empleado->Cells[6][z]=Form3->DateTimePicker1->Date.DateString();
         Form4->Empleado->Cells[7][z]=Form3->Edit3->Text;
 
-}
-
-void Limpiar::limpiarRegistro()
-{
-        Form2->MaskEdit1->Clear();
-        Form2->MaskEdit2->Clear();
-        Form2->MaskEdit3->Clear();
-        Form2->MaskEdit4->Clear();
-        Form2->Edit1->Clear();
-        Form2->Edit2->Clear();
-        Form2->Edit3->Clear();
-        Form2->Edit4->Clear();
-        Form2->Edit5->Clear();
-        Form2->Edit6->Clear();
-        Form2->Edit7->Clear();
-        Form2->DateTimePicker1->Date=Date().CurrentDate();
-        Form2->Memo1->Clear();
-        Form2->ComboBox1->Clear();
-
-        Form3->ComboBox1->Clear();
-        Form3->Edit1->Clear();
-        Form3->Edit2->Clear();
-        Form3->Edit3->Clear();
-        Form3->Memo1->Clear();
-        Form3->Memo2->Clear();
-        Form3->DateTimePicker1->Date=Date().CurrentDate();
-
-        Form2->Panel1->Visible=false;
-        Form2->Panel2->Visible=false;
-        Form2->Button3->Visible=false;
-
-        Form2->MaskEdit1->SetFocus();
 }
 
 bool Persona::validarCI(String ci)
@@ -195,30 +166,29 @@ int Persona::calcularEdad(String fecha)
 }
 
 String* Persona::buscarDatos(String ci)
-{
+{                  
         String* dato = new String[20];
+        if(ci!=""){
         dato[0]=ci;
         for(int i=1;i<Form4->Persona->RowCount;i++)
         {
                 if (Form4->Persona->Cells[1][i]==ci)
                 {
-                        Form5->tipo_lb->Caption=dato[1]=Form4->Persona->Cells[9][i];
-                        Form5->nom_lb->Caption=dato[2]=Form4->Persona->Cells[2][i];
-                        Form5->ape_lb->Caption=dato[3]=Form4->Persona->Cells[3][i];
+                        dato[1]=Form4->Persona->Cells[9][i];
+                        dato[2]=Form4->Persona->Cells[2][i];
+                        dato[3]=Form4->Persona->Cells[3][i];
                         dato[4]=Form4->Persona->Cells[4][i];
-                        Form5->ed_lb->Caption=dato[5]=calcularEdad(Form4->Persona->Cells[4][i]);
-                        Form5->fNac_lb->Caption=dato[6]=Form4->Persona->Cells[5][i];
-                        Form5->dir_lb->Caption=dato[7]=Form4->Persona->Cells[6][i];
-                        Form5->tlfF_lb->Caption=dato[8]=Form4->Persona->Cells[7][i];
-                        Form5->tlfM_lb->Caption=dato[9]=Form4->Persona->Cells[8][i];
-                        
-                        if(Form4->Persona->Cells[9][i]=="Paciente")
+                        dato[5]=calcularEdad(Form4->Persona->Cells[4][i]);
+                        dato[6]=Form4->Persona->Cells[5][i];
+                        dato[7]=Form4->Persona->Cells[6][i];
+                        dato[8]=Form4->Persona->Cells[7][i];
+                        dato[9]=Form4->Persona->Cells[8][i];
+
+                        if(dato[1]=="Paciente")
                         {
-                                Form5->Label9->Visible=false;
-                                Form5->rel_lb->Visible=false;
                                 for(int j=1;j<Form4->Historia->RowCount;j++)
                                 {
-                                        if(ci==Form4->Historia->Cells[0][i])
+                                        if(ci==Form4->Historia->Cells[0][j])
                                         {
                                                 dato[10]=Form4->Historia->Cells[1][j];
                                                 dato[11]=Form4->Historia->Cells[2][j];
@@ -230,12 +200,10 @@ String* Persona::buscarDatos(String ci)
                                         }
                                 }
                         }
-                        
-                        if(Form4->Persona->Cells[9][i]=="Representante")
+
+                        if(dato[1]=="Representante")
                         {
-                                Form5->Label9->Visible=true;
-                                Form5->rel_lb->Visible=true;
-                                Form5->rel_lb->Caption=dato[10]=Form4->Persona->Cells[10][i];
+                                dato[10]=Form4->Persona->Cells[10][i];
                                 for(int j=1;j<Form4->Reprecentante->RowCount;j++)
                                 {
                                         if(ci==Form4->Reprecentante->Cells[0][j])
@@ -246,11 +214,9 @@ String* Persona::buscarDatos(String ci)
                                         }
                                 }
                         }
-                        
-                        if(Form4->Persona->Cells[9][i]=="Empleado")
-                        {                      
-                                Form5->Label9->Visible=false;
-                                Form5->rel_lb->Visible=false;
+
+                        if(dato[1]=="Empleado")
+                        {
                                 for(int j=1;j<Form4->Empleado->RowCount;j++)
                                 {
                                         if(ci==Form4->Empleado->Cells[0][j])
@@ -264,8 +230,13 @@ String* Persona::buscarDatos(String ci)
                                                 dato[17]=Form4->Empleado->Cells[7][j];
                                         }
                                 }
-                        }       
+                        }
                 }
+        }
+        }
+        else
+        {
+                ShowMessage("No hay datos para mostrar");
         }
         return dato;
 }
@@ -276,8 +247,135 @@ void Paciente::listar()
         for(int i=1;i<Form4->Persona->RowCount;i++)
         {
                 if(Form4->Persona->Cells[9][i]=="Paciente")
-                Form6->ComboBox1->Items->Add(Form4->Persona->Cells[1][i]+" - "+Form4->Persona->Cells[3][i]+", "+Form4->Persona->Cells[2][i]);
+                        Form6->ComboBox1->Items->Add(Form4->Persona->Cells[1][i]+" - "+Form4->Persona->Cells[3][i]+", "+Form4->Persona->Cells[2][i]);
         }
+}
+
+void Paciente::listarM()
+{
+        for(int i=1;i<Form4->Persona->RowCount;i++)
+        {
+                if(Form4->Persona->Cells[9][i]=="Paciente")
+                        Form7->ComboBox1->Items->Add(Form4->Persona->Cells[0][i]+" - "+Form4->Persona->Cells[1][i]+" - "+Form4->Persona->Cells[3][i]+", "+Form4->Persona->Cells[2][i]);
+        }
+}
+
+void Persona::ListarModificar(String tipo)
+{
+        int a = Form4->Persona->RowCount;
+
+        for(int i=1;i<a;i++)
+        {
+                if(Form4->Persona->Cells[9][i]==tipo)
+                {
+                        Form7->ComboBox2->Items->Add(
+                                Form4->Persona->Cells[1][i]+"-"+Form4->Persona->Cells[3][i]+", "+Form4->Persona->Cells[2][i]
+                        );
+                }
+        }
+}
+
+void Paciente::GuardarHistoria(String ci)
+{
+        bool a = false;
+        for(int i = 1;i<Form4->Historia->RowCount;i++)
+        {
+                if(Form4->Historia->Cells[0][i]==ci)
+                {
+                        a = true;
+                        Form4->Historia->Cells[3][i]=Form6->Memo1->Text;
+                        Form4->Historia->Cells[4][i]=Form6->Memo2->Text;
+                        Form4->Historia->Cells[5][i]=Form6->Memo3->Text;
+                        Form4->Historia->Cells[6][i]=Form6->Memo4->Text;
+                }
+        }
+        if(!a)
+        {
+                codHist++;
+                if(Form4->Historia->RowCount<=codHist)
+                        Form4->Historia->RowCount++;
+                Form4->Historia->Cells[0][codHist]=ci;
+                Form4->Historia->Cells[3][codHist]=Form6->Memo1->Text;
+                Form4->Historia->Cells[4][codHist]=Form6->Memo2->Text;
+                Form4->Historia->Cells[5][codHist]=Form6->Memo3->Text;
+                Form4->Historia->Cells[6][codHist]=Form6->Memo4->Text;
+                Form4->Historia->Cells[7][codHist]=codHist;
+        }
+}
+
+void Paciente::VerHistoria(String ci, bool mod)
+{
+        String* d=buscarDatos(ci);
+        Form6->Memo1->Text=d[12];
+        Form6->Memo2->Text=d[13];
+        Form6->Memo3->Text=d[14];
+        Form6->Memo4->Text=d[15];
+        Form6->cod_lb->Caption=d[16];
+}
+
+void Persona::Modificar(String ci)
+{
+        for(int i=1;i<Form4->Persona->RowCount;i++)
+        {
+                if(ci==Form4->Persona->Cells[1][i])
+                {
+                        Form4->Persona->Cells[2][i]=Form7->Edit1->Text;
+                        Form4->Persona->Cells[3][i]=Form7->Edit2->Text;
+                        Form4->Persona->Cells[4][i]=Form7->DateTimePicker1->Date.DateString();
+                        Form4->Persona->Cells[5][i]=Form7->Edit3->Text;
+                        Form4->Persona->Cells[6][i]=Form7->Edit4->Text;
+                        Form4->Persona->Cells[7][i]=Form7->MaskEdit2->Text;
+                        Form4->Persona->Cells[8][i]=Form7->MaskEdit3->Text;
+                }
+        }
+}
+
+//-----------------------------LIMPIAR------------------------------------
+
+void Limpiar::LimpiarDatosLaborales()
+{
+        Form3->Edit1->Clear();
+        Form3->Edit2->Clear();
+        Form3->Edit3->Clear();
+        Form3->Memo1->Clear();
+        Form3->Memo2->Clear();
+        Form3->DateTimePicker1->CleanupInstance();
+        Form3->Edit1->Clear();
+        
+        Form3->ComboBox1->Enabled=true;
+        Form3->Edit1->Enabled=true;
+        Form3->Edit2->Enabled=true;
+        Form3->Edit3->Enabled=true;
+        Form3->Memo1->Enabled=true;
+        Form3->Memo2->Enabled=true;
+        Form3->DateTimePicker1->Enabled=true;
+}
+
+void Limpiar::LimpiarBuscar()
+{
+        Form5->MaskEdit1->Clear();
+        Form5->tipo_lb->Caption="";
+        Form5->nom_lb->Caption="";
+        Form5->ape_lb->Caption="";
+        Form5->ed_lb->Caption="";
+        Form5->dir_lb->Caption="";
+        Form5->fNac_lb->Caption="";
+        Form5->tlfF_lb->Caption="";
+        Form5->tlfM_lb->Caption="";
+        Form5->rel_lb->Caption="";
+}
+
+void Limpiar::LimpiarHistoria()
+{
+        Form6->ComboBox1->Clear();
+        Form6->Memo1->Clear();
+        Form6->Memo2->Clear();
+        Form6->Memo3->Clear();
+        Form6->Memo4->Clear();
+        if(Form4->Historia->Cells[0][1]=="")
+                Form6->cod_lb->Caption=1;
+        else
+                Form6->cod_lb->Caption=Form4->Historia->RowCount;
 }
 
 void Limpiar::LimpiarModificar()
@@ -304,142 +402,339 @@ void Limpiar::LimpiarModificar()
 
 }
 
-void Paciente::ListarModificar(String tipo)
+void Limpiar::limpiarRegistro()
 {
-        int a = Form4->Persona->RowCount;
+        Form2->MaskEdit1->Clear();
+        Form2->MaskEdit2->Clear();
+        Form2->MaskEdit3->Clear();
+        Form2->MaskEdit4->Clear();
+        Form2->Edit1->Clear();
+        Form2->Edit2->Clear();
+        Form2->Edit3->Clear();
+        Form2->Edit4->Clear();
+        Form2->Edit5->Clear();
+        Form2->Edit6->Clear();
+        Form2->Edit7->Clear();
+        Form2->DateTimePicker1->Date=Date().CurrentDate();
+        Form2->Memo1->Clear();
+        Form2->ComboBox1->Clear();
 
-        for(int i=1;i<a;i++)
+        Form3->ComboBox1->Text="";
+        Form3->Edit1->Clear();
+        Form3->Edit2->Clear();
+        Form3->Edit3->Clear();
+        Form3->Memo1->Clear();
+        Form3->Memo2->Clear();
+        Form3->DateTimePicker1->Date=Date().CurrentDate();
+
+        Form2->Panel1->Visible=false;
+        Form2->Panel2->Visible=false;
+        Form2->Button3->Visible=false;
+
+        Form2->MaskEdit1->SetFocus();
+}
+
+void Empleado::DatosParaModificar(String ci)
+{
+        String* d= buscarDatos(ci);
+        Form3->ComboBox1->Text=d[11];
+        Form3->Edit1->Text=d[12];
+        Form3->Edit2->Text=d[13];
+        Form3->Memo1->Text=d[14];
+        Form3->Memo2->Text=d[15];
+        Form3->DateTimePicker1->Date=StrToDate(d[16]);
+        Form3->Edit3->Text=d[17];
+
+}
+
+void Persona::Ver(String ci)
+{
+        String* d= buscarDatos(ci);
+        Form5->tipo_lb->Caption=d[1];
+        Form5->nom_lb->Caption=d[2];
+        Form5->ape_lb->Caption=d[3];
+        Form5->ed_lb->Caption=d[5];
+        Form5->fNac_lb->Caption=d[6];
+        Form5->dir_lb->Caption=d[7];
+        Form5->tlfF_lb->Caption=d[8];
+        Form5->tlfM_lb->Caption=d[9];
+        if(d[1]=="Paciente")
         {
-                if(Form4->Persona->Cells[9][i]==tipo)
+                Form5->Label9->Visible=false;
+                Form5->rel_lb->Visible=false;
+                Form5->datLab_btn->Visible=false;
+                Form5->listRep_btn->Visible=true;
+                Form5->historia_btn->Visible=true;
+        }
+        if(d[1]=="Representante")
+        {
+                Form5->Label9->Visible=true;
+                Form5->rel_lb->Visible=true;
+                Form5->rel_lb->Caption=d[10];
+                Form5->datLab_btn->Visible=false;
+                Form5->listRep_btn->Visible=false;
+                Form5->historia_btn->Visible=false;
+        }
+        if(d[1]=="Empleado")
+        {
+                Form5->Label9->Visible=false;
+                Form5->rel_lb->Visible=false;
+                Form5->datLab_btn->Visible=true;
+                Form5->listRep_btn->Visible=false;
+                Form5->historia_btn->Visible=false;
+        }
+}
+
+void Persona::VerParaModificar(String ci)
+{
+        String* d= buscarDatos(ci);
+        Form7->Edit1->Text=d[2];
+        Form7->Edit2->Text=d[3];
+        Form7->DateTimePicker1->Date=StrToDate(d[4]);
+        Form7->Edit3->Text=d[6];
+        Form7->Edit4->Text=d[7];
+        Form7->MaskEdit2->Text=d[8];
+        Form7->MaskEdit3->Text=d[9];
+        if(d[1]=="Paciente")
+        {
+                Form7->Panel1->Show();
+                Form7->Panel2->Hide();
+                Form7->Button3->Hide();
+                Form7->Edit5->Text=d[10];
+                Form7->Edit6->Text=d[11];
+        }
+        if(d[1]=="Representante")
+        {
+                Form7->Panel1->Hide();
+                Form7->Panel2->Show();
+                Form7->Button3->Hide();
+                Form7->Edit7->Text=d[11];
+                Form7->MaskEdit4->Text=d[12];
+                Form7->Memo1->Text=d[13];
+                Form7->ComboBox1->Text=d[10];
+        }
+        if(d[1]=="Empleados")
+        {
+                Form7->Panel1->Hide();
+                Form7->Panel2->Hide();
+                Form7->Button3->Show();
+        }
+}
+
+void Paciente::ModificarP(String ci)
+{
+        Modificar(ci);
+        for(int i=1;i<Form4->Historia->RowCount;i++)
+        {
+                if(ci==Form4->Historia->Cells[0][i])
                 {
-                        Form7->ComboBox2->Items->Add(
-                                Form4->Persona->Cells[1][i]+"-"+Form4->Persona->Cells[3][i]+", "+Form4->Persona->Cells[2][i]
+                        Form4->Historia->Cells[1][i]=Form7->Edit5->Text;
+                        Form4->Historia->Cells[2][i]=Form7->Edit6->Text;
+
+                }
+        }
+}
+
+void Representante::ModificarR(String ci)
+{
+        Modificar(ci);
+        for(int i=1;i<Form4->Reprecentante->RowCount;i++)
+        {
+                if(ci==Form4->Reprecentante->Cells[0][i])
+                {
+                        Form4->Reprecentante->Cells[1][i]=Form7->Edit7->Text;
+                        Form4->Reprecentante->Cells[2][i]=Form7->MaskEdit4->Text;
+                        Form4->Reprecentante->Cells[3][i]=Form7->Memo1->Text;
+                        Form4->Reprecentante->Cells[4][i]=Form7->ComboBox1->Text;
+
+                }
+        }
+}
+
+void Empleado::ModificarE(String ci)
+{
+        Modificar(ci);
+        for(int i=1;i<Form4->Empleado->RowCount;i++)
+        {
+                if(ci==Form4->Empleado->Cells[0][i])
+                {
+                        Form4->Empleado->Cells[1][i]=Form3->ComboBox1->Text;
+                        Form4->Empleado->Cells[2][i]=Form3->Edit1->Text;
+                        Form4->Empleado->Cells[3][i]=Form3->Edit2->Text;
+                        Form4->Empleado->Cells[4][i]=Form3->Memo1->Text;
+                        Form4->Empleado->Cells[5][i]=Form3->Memo2->Text;
+                        Form4->Empleado->Cells[6][i]=Form3->DateTimePicker1->Date.DateString();
+                        Form4->Empleado->Cells[7][i]=Form3->Edit3->Text;
+                }
+        }
+}
+
+void Representante::ListarReprePresentantes(String ci)
+{
+        for(int i=1;i<Form4->Persona->RowCount;i++)
+        {
+                if(ci==Form4->Persona->Cells[10][i])
+                {
+                        String* d = buscarDatos(Form4->Persona->Cells[1][i]);
+                        Form8->Memo1->Lines->Add(d[0]+"\t"+d[3]+", "+d[2]);
+                        Form8->Memo1->Lines->Add("\tDirección de Habitación: "+d[7]);
+                        Form8->Memo1->Lines->Add("\tTeléfono de Habitación: "+d[8]);
+                        Form8->Memo1->Lines->Add("\tTeléfono de Móvil: "+d[9]);
+                        Form8->Memo1->Lines->Add("\tDirección de Oficina: "+d[11]);
+                        Form8->Memo1->Lines->Add("\tTeléfono de Oficina: "+d[12]);
+                        Form8->Memo1->Lines->Add("\tInformación Adicional de contacto: "+d[13]);
+                        Form8->Memo1->Lines->Add("---------------------------------------------------------------");
+                        Form8->Memo1->Lines->Add("");
+                }
+        }
+}
+
+void Paciente::ListarC()
+{
+        for(int i=1;i<Form4->Persona->RowCount;i++)
+        {
+                if(Form4->Persona->Cells[9][i]=="Paciente")
+                {
+                        Form1->ComboBox1->Items->Add(
+                                Form4->Persona->Cells[1][i]+" - "+
+                                Form4->Persona->Cells[3][i]+", "+
+                                Form4->Persona->Cells[2][i]
                         );
                 }
         }
 }
 
-String* Paciente::DatosModificar(String ci)
+void Paciente::DatosCita(String ci)
 {
-        String *datos;
-        int a=Form4->Persona->RowCount;
-        int b=Form4->Reprecentante->RowCount;
-        int c=Form4->Empleado->RowCount;
-
-        for(int i=1;i<a;i++)
-        {
-                if(Form4->Persona->Cells[1][i]==ci)
-                {
-                        Form7->Edit1->Text=Form4->Persona->Cells[2][i];
-                        Form7->Edit2->Text=Form4->Persona->Cells[3][i];
-                        Form7->Edit3->Text=Form4->Persona->Cells[5][i];
-                        Form7->Edit4->Text=Form4->Persona->Cells[6][i];
-                        Form7->MaskEdit2->Text=Form4->Persona->Cells[7][i];
-                        Form7->MaskEdit3->Text=Form4->Persona->Cells[8][i];
-                        Form7->DateTimePicker1->Date=StrToDate(Form4->Persona->Cells[4][i]);
-                        if(Form4->Persona->Cells[9][i]=="Paciente")
-                        {
-                        }
-                        if(Form4->Persona->Cells[9][i]=="Representante")
-                        {
-                                for(int j=1;j<b;j++)
-                                {
-                                        if(Form4->Reprecentante->Cells[0][j]==ci)
-                                        {
-                                                Form7->Edit7->Text=Form4->Reprecentante->Cells[1][i];
-                                                Form7->MaskEdit4->Text=Form4->Reprecentante->Cells[2][i];
-                                                Form7->Memo1->Text=Form4->Reprecentante->Cells[3][i];
-                                        }
-                                }
-                        }
-                        if(Form4->Persona->Cells[9][i]=="Empleado")
-                        {
-                        }
-
-                }
-        }
-        return datos;
+        String* d = buscarDatos(ci);
+        Form1->nom_lb->Caption=d[3]+", "+d[2];
+        Citas(ci);
+        
 }
 
-void Paciente::GuardarHistoria(String ci)
+void Paciente::IngresarCita()
 {
-        bool a = false;
-        for(int i = 1;i<Form4->Historia->RowCount;i++)
-        {
-                if(Form4->Historia->Cells[0][i]==ci)
-                {
-                        a = true;
-                        ShowMessage("Encontrado en el indice "+IntToStr(i));
-                        Form4->Historia->Cells[3][i]+="-"+Form6->Memo1->Text;
-                        Form4->Historia->Cells[4][i]+="-"+Form6->Memo2->Text;
-                        Form4->Historia->Cells[5][i]+="-"+Form6->Memo3->Text;
-                        Form4->Historia->Cells[6][i]+="-"+Form6->Memo4->Text;
-                }
-        }
-        if(!a)
-        {
-                codHist++;
-                if(Form4->Historia->RowCount<=codHist)
-                        Form4->Historia->RowCount++;
-                Form4->Historia->Cells[0][codHist]=ci;
-                Form4->Historia->Cells[3][codHist]=Form6->Memo1->Text;
-                Form4->Historia->Cells[4][codHist]=Form6->Memo2->Text;
-                Form4->Historia->Cells[5][codHist]=Form6->Memo3->Text;
-                Form4->Historia->Cells[6][codHist]=Form6->Memo4->Text;
-                Form4->Historia->Cells[7][codHist]=codHist;
-        }
+        if(Form4->Citas->RowCount<=cita+1)
+                Form4->Citas->RowCount++;
+
+        cita++;
+
+        Form4->Citas->Cells[0][cita]=cita;
+        Form4->Citas->Cells[1][cita]=Form1->ComboBox1->Text.SubString(0,8);
+        Form4->Citas->Cells[2][cita]=Form1->Edit1->Text;
+        Form4->Citas->Cells[3][cita]=Form1->DateTimePicker1->Date.DateString();
+        Citas(Form1->ComboBox1->Text.SubString(0,8));
 }
 
-void Limpiar::LimpiarHistoria()
-{
-        Form6->ComboBox1->Clear();
-        Form6->Memo1->Clear();
-        Form6->Memo2->Clear();
-        Form6->Memo3->Clear();
-        Form6->Memo4->Clear();
-        Form6->cod_lb->Caption=Form4->Historia->RowCount-1;
-}
-
-void Paciente::VerHistoria(String ci, bool mod)
-{
-        Form6->ComboBox1->Text=ci;
-        for(int i = 1;i<Form4->Historia->RowCount;i++)
+void Paciente::Citas(String ci)
+{    
+        Form1->ListBox1->Clear();
+        Form1->nCita_lb->Caption=cita+1;
+        for(int i=1;i<Form4->Citas->RowCount;i++)
         {
-                if(ci==Form4->Historia->Cells[0][i])
+                if(ci==Form4->Citas->Cells[1][i])
                 {
-                        
+                        Form1->ListBox1->Items->Add(
+                                Form4->Citas->Cells[3][i]+" - "+Form4->Citas->Cells[2][i]
+                        );
                 }
         }
 }
 
-void Limpiar::LimpiarBuscar()
+void Limpiar::LimpiarCita()
 {
-        Form5->MaskEdit1->Clear();
-        Form5->tipo_lb->Caption="";
-        Form5->nom_lb->Caption="";
-        Form5->ape_lb->Caption="";
-        Form5->ed_lb->Caption="";
-        Form5->dir_lb->Caption="";
-        Form5->fNac_lb->Caption="";
-        Form5->tlfF_lb->Caption="";
-        Form5->tlfM_lb->Caption="";
-        Form5->rel_lb->Caption="";
+        Form1->ComboBox1->Clear();
+        Form1->nom_lb->Caption="";
+        Form1->Edit1->Clear();
+        Form1->DateTimePicker1->Date=Date().CurrentDate();
+        Form1->ListBox1->Clear();
 }
 
-void Persona::Modificar(String ci)
+void Paciente::ListarRepo()
 {
-        ShowMessage(ci);
         for(int i=1;i<Form4->Persona->RowCount;i++)
         {
-                if(ci==Form4->Persona->Cells[1][i])
+                String* d = buscarDatos(Form4->Persona->Cells[1][i]);
+                if(d[1]=="Paciente")
                 {
-                        Form4->Persona->Cells[2][i]=Form7->Edit1->Text;
-                        Form4->Persona->Cells[3][i]=Form7->Edit2->Text;
-                        Form4->Persona->Cells[4][i]=Form7->DateTimePicker1->Date.DateString();
-                        Form4->Persona->Cells[5][i]=Form7->Edit3->Text;
-                        Form4->Persona->Cells[6][i]=Form7->Edit4->Text;
-                        Form4->Persona->Cells[7][i]=Form7->MaskEdit2->Text;
-                        Form4->Persona->Cells[8][i]=Form7->MaskEdit3->Text;
+                        Form9->lista_memo->Lines->Add("Cédula:   "+d[0]);
+                        Form9->lista_memo->Lines->Add("Nombre:   "+d[3]+", "+d[2]);
+                        Form9->lista_memo->Lines->Add("Edad:     "+d[5]);
+                        Form9->lista_memo->Lines->Add("Historia Nº "+d[16]);
+                        Form9->lista_memo->Lines->Add("");
+                        Form9->lista_memo->Lines->Add("");
                 }
+        }
+}
+
+void Empleado::ListarRepo()
+{ 
+        for(int i=1;i<Form4->Persona->RowCount;i++)
+        {
+                String* d = buscarDatos(Form4->Persona->Cells[1][i]);
+                if(d[1]=="Empleado")
+                {
+                        Form9->lista_memo->Lines->Add("Cédula:  "+d[0]);
+                        Form9->lista_memo->Lines->Add("Nombre:  "+d[3]+", "+d[2]);
+                        Form9->lista_memo->Lines->Add("Edad:    "+d[5]);
+                        Form9->lista_memo->Lines->Add("\tCargo: "+d[17]);
+                        Form9->lista_memo->Lines->Add("\tFecha de Ingreso: "+d[16]);
+                        Form9->lista_memo->Lines->Add("");
+                        Form9->lista_memo->Lines->Add("");
+                }
+        }
+}
+
+void Persona::ListarVer(String tipo)
+{
+        for(int i=1;i<Form4->Persona->RowCount;i++)
+        {
+                if(Form4->Persona->Cells[9][i]==tipo)
+                {
+                        Form1->ComboBox2->Items->Add(
+                                Form4->Persona->Cells[1][i]+" - "+
+                                Form4->Persona->Cells[3][i]+", "+
+                                Form4->Persona->Cells[2][i]
+                        );
+                }
+        }
+}
+
+void Persona::RepoArchivo(String ci)
+{
+        Form10->data_memo->Lines->Clear();
+
+        String* d=buscarDatos(ci);
+        Form10->Caption="Archivo de "+d[1];
+        Form10->nomLista_lb->Caption="Archivo de "+d[1];
+        Form10->data_memo->Lines->Add("Cédula: "+d[0]);
+        Form10->data_memo->Lines->Add("Nombre: "+d[3]+", "+d[2]);
+        Form10->data_memo->Lines->Add("Edad: "+d[5]);
+        Form10->data_memo->Lines->Add("Fecha de nacimiento: "+d[4]);
+        Form10->data_memo->Lines->Add("Lugar de Nacimiento: "+d[6]);
+        Form10->data_memo->Lines->Add("Dirección: "+d[7]);
+        Form10->data_memo->Lines->Add("Teléfono fijo: "+d[8]);
+        Form10->data_memo->Lines->Add("Teléfono bóvil: "+d[9]);
+        Form10->data_memo->Lines->Add("");
+
+        if(d[1]=="Paciente")
+        {
+                Form10->data_memo->Lines->Add("Historia Médica Nº "+d[16]);
+                Form10->data_memo->Lines->Add("Motivo de ingreso al centro: "+d[12]);
+                Form10->data_memo->Lines->Add("Antecedentes Médicos: "+d[13]);
+                Form10->data_memo->Lines->Add("Evaluación: "+d[14]);
+                Form10->data_memo->Lines->Add("Alergias: "+d[15]);
+        }
+        if(d[1]=="Empleado")
+        {
+        Form10->data_memo->Lines->Add("Datos Laborales");
+        Form10->data_memo->Lines->Add("");
+        Form10->data_memo->Lines->Add("Cargo Actual: "+d[17]);
+        Form10->data_memo->Lines->Add("Fecha de Ingreso al Centro: "+d[16]);
+        Form10->data_memo->Lines->Add("Nivel Educativo: "+d[11]);
+        Form10->data_memo->Lines->Add("Instituciín: "+d[12]);
+        Form10->data_memo->Lines->Add("Título Obtenido: "+d[13]);
+        Form10->data_memo->Lines->Add("Experiencia Laboral: "+d[14]);
+        Form10->data_memo->Lines->Add("Cursos Realizados: "+d[15]);
         }
 }

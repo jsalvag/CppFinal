@@ -3,19 +3,14 @@
 #include <vcl.h>
 #pragma hdrstop
 
-#include "DLaborales.h"
+#include "ReporteArchivo.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
-TForm3 *Form3;
+TForm10 *Form10;
 //---------------------------------------------------------------------------
-__fastcall TForm3::TForm3(TComponent* Owner)
+__fastcall TForm10::TForm10(TComponent* Owner)
         : TForm(Owner)
 {
-}
-//---------------------------------------------------------------------------
-void __fastcall TForm3::Button2Click(TObject *Sender)
-{
-        this->Close();        
 }
 //---------------------------------------------------------------------------

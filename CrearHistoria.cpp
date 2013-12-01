@@ -32,3 +32,9 @@ void __fastcall TForm6::Button2Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TForm6::ComboBox1Change(TObject *Sender)
+{
+        pac.VerHistoria(ComboBox1->Text.SubString(0,8), true);        
+}
+//---------------------------------------------------------------------------
+

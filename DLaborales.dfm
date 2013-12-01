@@ -1,6 +1,6 @@
 object Form3: TForm3
-  Left = 985
-  Top = 196
+  Left = 3
+  Top = 115
   BorderStyle = bsToolWindow
   Caption = 'Datos Laborales'
   ClientHeight = 401
@@ -120,6 +120,7 @@ object Form3: TForm3
     ParentFont = False
     TabOrder = 0
     Items.Strings = (
+      'Sin Estudios'
       'B'#225'sica'
       'M'#233'dia'
       'T'#233'cnica'

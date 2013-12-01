@@ -10,6 +10,9 @@ USEFORM("TablasDatos.cpp", Form4);
 USEFORM("Buscar.cpp", Form5);
 USEFORM("CrearHistoria.cpp", Form6);
 USEFORM("Modificar.cpp", Form7);
+USEFORM("Listas.cpp", Form8);
+USEFORM("ReprteListas.cpp", Form9);
+USEFORM("ReporteArchivo.cpp", Form10);
 //---------------------------------------------------------------------------
 WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
@@ -23,6 +26,9 @@ WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
                  Application->CreateForm(__classid(TForm5), &Form5);
                  Application->CreateForm(__classid(TForm6), &Form6);
                  Application->CreateForm(__classid(TForm7), &Form7);
+                 Application->CreateForm(__classid(TForm8), &Form8);
+                 Application->CreateForm(__classid(TForm9), &Form9);
+                 Application->CreateForm(__classid(TForm10), &Form10);
                  Application->Run();
         }
         catch (Exception &exception)

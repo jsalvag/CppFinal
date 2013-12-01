@@ -8,13 +8,11 @@
 #include <StdCtrls.hpp>
 #include <Forms.hpp>
 #include <Mask.hpp>
+#include <ExtCtrls.hpp>
 //---------------------------------------------------------------------------
 class TForm5 : public TForm
 {
 __published:	// IDE-managed Components
-        TLabel *Label1;
-        TMaskEdit *MaskEdit1;
-        TButton *buscar_btn;
         TLabel *Label2;
         TLabel *Label3;
         TLabel *Label4;
@@ -33,8 +31,17 @@ __published:	// IDE-managed Components
         TLabel *rel_lb;
         TLabel *tipo_lb;
         TButton *historia_btn;
-        TButton *Button1;
+        TButton *datLab_btn;
+        TButton *listRep_btn;
+        TPanel *Panel1;
+        TLabel *Label1;
+        TMaskEdit *MaskEdit1;
+        TButton *buscar_btn;
         void __fastcall buscar_btnClick(TObject *Sender);
+        void __fastcall historia_btnClick(TObject *Sender);
+        void __fastcall listRep_btnClick(TObject *Sender);
+        void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
+        void __fastcall datLab_btnClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TForm5(TComponent* Owner);

@@ -1,36 +1,32 @@
 //---------------------------------------------------------------------------
 
-#ifndef CrearHistoriaH
-#define CrearHistoriaH
+#ifndef ReprteListasH
+#define ReprteListasH
 //---------------------------------------------------------------------------
 #include <Classes.hpp>
 #include <Controls.hpp>
 #include <StdCtrls.hpp>
 #include <Forms.hpp>
+#include <ExtCtrls.hpp>
+#include <QRCtrls.hpp>
+#include <QuickRpt.hpp>
 //---------------------------------------------------------------------------
-class TForm6 : public TForm
+class TForm9 : public TForm
 {
 __published:	// IDE-managed Components
-        TLabel *Label1;
-        TComboBox *ComboBox1;
-        TLabel *Label2;
-        TLabel *cod_lb;
-        TLabel *Label3;
-        TMemo *Memo1;
-        TLabel *Label4;
-        TMemo *Memo2;
-        TLabel *Label5;
-        TMemo *Memo3;
-        TLabel *Label6;
-        TMemo *Memo4;
-        TButton *Button2;
-        void __fastcall Button2Click(TObject *Sender);
-        void __fastcall ComboBox1Change(TObject *Sender);
+        TQuickRep *QuickRep1;
+        TQRBand *QRBand1;
+        TQRLabel *QRLabel1;
+        TQRLabel *QRLabel2;
+        TQRBand *QRBand2;
+        TQRLabel *nomLista_lb;
+        TQRBand *QRBand3;
+        TQRMemo *lista_memo;
 private:	// User declarations
 public:		// User declarations
-        __fastcall TForm6(TComponent* Owner);
+        __fastcall TForm9(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TForm6 *Form6;
+extern PACKAGE TForm9 *Form9;
 //---------------------------------------------------------------------------
 #endif

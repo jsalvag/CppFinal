@@ -5,16 +5,18 @@
     <VERSION value="BCB.06.00"/>
     <PROJECT value="Project1.exe"/>
     <OBJFILES value="Project1.obj Inicio.obj Clases.obj Registro.obj DLaborales.obj 
-      TablasDatos.obj Buscar.obj CrearHistoria.obj Modificar.obj"/>
+      TablasDatos.obj Buscar.obj CrearHistoria.obj Modificar.obj Listas.obj 
+      ReprteListas.obj ReporteArchivo.obj"/>
     <RESFILES value="Project1.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
     <DEFFILE value=""/>
     <RESDEPEN value="$(RESFILES) Inicio.dfm Registro.dfm DLaborales.dfm TablasDatos.dfm 
-      Buscar.dfm CrearHistoria.dfm Modificar.dfm"/>
+      Buscar.dfm CrearHistoria.dfm Modificar.dfm Listas.dfm ReprteListas.dfm 
+      ReporteArchivo.dfm"/>
     <LIBFILES value=""/>
     <LIBRARIES value=""/>
-    <SPARELIBS value="vcl.lib rtl.lib"/>
+    <SPARELIBS value="vcl.lib rtl.lib qrpt.lib vclx.lib bdertl.lib dbrtl.lib"/>
     <PACKAGES value="vcl.bpi rtl.bpi dbrtl.bpi adortl.bpi vcldb.bpi vclx.bpi bdertl.bpi 
       vcldbx.bpi ibxpress.bpi dsnap.bpi cds.bpi bdecds.bpi qrpt.bpi teeui.bpi 
       teedb.bpi tee.bpi dss.bpi teeqr.bpi visualclx.bpi visualdbclx.bpi 
@@ -66,6 +68,9 @@
       <FILE FILENAME="Buscar.cpp" FORMNAME="Form5" UNITNAME="Buscar" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="CrearHistoria.cpp" FORMNAME="Form6" UNITNAME="CrearHistoria" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Modificar.cpp" FORMNAME="Form7" UNITNAME="Modificar" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Listas.cpp" FORMNAME="Form8" UNITNAME="Listas" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="ReprteListas.cpp" FORMNAME="Form9" UNITNAME="ReprteListas" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="ReporteArchivo.cpp" FORMNAME="Form10" UNITNAME="ReporteArchivo" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
   </FILELIST>
   <BUILDTOOLS>
   </BUILDTOOLS>

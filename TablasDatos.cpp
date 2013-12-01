@@ -49,7 +49,7 @@ void __fastcall TForm4::FormCreate(TObject *Sender)
         Empleado->Cells[6][0]="Fecha Ingreso";
         Empleado->Cells[7][0]="Cargo";
 
-        Historia->Cells[0][0]="Cédula";
+        Historia->Cells[0][0]="Paciente";
         Historia->Cells[1][0]="Hijos M";
         Historia->Cells[2][0]="Hijos F";
         Historia->Cells[3][0]="Motivo";
@@ -57,22 +57,23 @@ void __fastcall TForm4::FormCreate(TObject *Sender)
         Historia->Cells[5][0]="Evaluación";
         Historia->Cells[6][0]="Alergias";
         Historia->Cells[7][0]="Código";
+
+        Citas->Cells[0][0]="Cita Nº";
+        Citas->Cells[1][0]="Cédula";
+        Citas->Cells[2][0]="Fecha";
+        Citas->Cells[3][0]="Motivo";
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm4::Button1Click(TObject *Sender)
 {
-        String* datos = ppl.buscarDatos(Edit1->Text);
-        ShowMessage(
-                "Tipo:\t"+datos[1]+
-                "\nNombre:\t"+datos[2]+
-                "\nApellido:\t"+datos[3]+
-                "\nF Nac:\t"+datos[4]+
-                "\nEdad:\t"+datos[5]+
-                "\nL Nac:\t"+datos[6]+
-                "\nDirecc:\t"+datos[7]+
-                "\nTlf Fijo:\t"+datos[8]+
-                "\nTlf Movl:\t"+datos[9]
-                );
+        String* d = ppl.buscarDatos(Edit1->Text);
+        String cad = "";
+        for(int i=0;i<=17;i++)
+        {
+                if(d[i]!="")
+                cad += d[i]+"\n";
+        }
+        ShowMessage(cad);
 }
 //---------------------------------------------------------------------------
 

@@ -19,7 +19,7 @@ object Form4: TForm4
     Left = 0
     Top = 0
     Width = 809
-    Height = 81
+    Height = 145
     Align = alTop
     ColCount = 11
     RowCount = 2
@@ -39,9 +39,9 @@ object Form4: TForm4
   end
   object Reprecentante: TStringGrid
     Left = 0
-    Top = 81
+    Top = 145
     Width = 809
-    Height = 80
+    Height = 153
     Align = alTop
     ColCount = 4
     RowCount = 2
@@ -54,9 +54,9 @@ object Form4: TForm4
   end
   object Empleado: TStringGrid
     Left = 0
-    Top = 161
+    Top = 298
     Width = 809
-    Height = 80
+    Height = 153
     Align = alTop
     ColCount = 8
     RowCount = 2
@@ -73,9 +73,9 @@ object Form4: TForm4
   end
   object Historia: TStringGrid
     Left = 0
-    Top = 241
+    Top = 451
     Width = 809
-    Height = 80
+    Height = 153
     Align = alTop
     ColCount = 8
     RowCount = 2
@@ -105,20 +105,5 @@ object Form4: TForm4
     Caption = 'Buscar'
     TabOrder = 5
     OnClick = Button1Click
-  end
-  object Citas: TStringGrid
-    Left = 0
-    Top = 321
-    Width = 809
-    Height = 80
-    Align = alTop
-    ColCount = 4
-    RowCount = 2
-    TabOrder = 6
-    ColWidths = (
-      64
-      101
-      100
-      536)
   end
 end

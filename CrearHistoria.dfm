@@ -1,6 +1,6 @@
 object Form6: TForm6
-  Left = 972
-  Top = 28
+  Left = 213
+  Top = 204
   Width = 370
   Height = 489
   Caption = 'Historia'
@@ -117,6 +117,7 @@ object Form6: TForm6
     ItemHeight = 20
     ParentFont = False
     TabOrder = 0
+    OnChange = ComboBox1Change
   end
   object Memo1: TMemo
     Left = 8

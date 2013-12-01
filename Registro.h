@@ -49,6 +49,7 @@ __published:	// IDE-managed Components
         TMaskEdit *MaskEdit1;
         void __fastcall Button2Click(TObject *Sender);
         void __fastcall Button3Click(TObject *Sender);
+        void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
 private:	// User declarations
 public:		// User declarations
         __fastcall TForm2(TComponent* Owner);

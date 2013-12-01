@@ -66,3 +66,10 @@ void __fastcall TForm2::Button3Click(TObject *Sender)
 
 
 
+void __fastcall TForm2::FormClose(TObject *Sender, TCloseAction &Action)
+{
+        l.LimpiarDatosLaborales();
+        l.limpiarRegistro();        
+}
+//---------------------------------------------------------------------------
+

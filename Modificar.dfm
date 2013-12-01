@@ -1,6 +1,6 @@
 object Form7: TForm7
-  Left = 978
-  Top = 222
+  Left = 922
+  Top = 196
   Width = 369
   Height = 495
   Caption = 'Modificar'
@@ -440,6 +440,7 @@ object Form7: TForm7
     ParentFont = False
     TabOrder = 10
     Visible = False
+    OnClick = Button3Click
   end
   object ComboBox2: TComboBox
     Left = 192
